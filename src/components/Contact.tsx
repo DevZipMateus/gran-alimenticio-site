@@ -31,16 +31,16 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contato" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">Entre em contato</h2>
-          <p className="text-lg text-muted-foreground">
+    <section id="contato" className="py-12 sm:py-16 md:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground">Entre em contato</h2>
+          <p className="text-base sm:text-lg text-muted-foreground">
             Estamos prontos para atender você da melhor forma possível
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {contactInfo.map((info, index) => (
             <Card
               key={index}
@@ -49,40 +49,40 @@ const Contact = () => {
               }`}
               onClick={info.action || undefined}
             >
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 mx-auto mb-3 bg-primary/10 rounded-full flex items-center justify-center">
-                  <info.icon className="h-6 w-6 text-primary" />
+              <CardContent className="p-4 sm:p-6 text-center">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 bg-primary/10 rounded-full flex items-center justify-center">
+                  <info.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-2 text-foreground">{info.title}</h3>
-                <p className="text-sm text-muted-foreground whitespace-pre-line">{info.content}</p>
+                <h3 className="text-sm sm:text-base font-semibold mb-1 sm:mb-2 text-foreground">{info.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground whitespace-pre-line break-words">{info.content}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-4 sm:space-y-6">
           <Card className="max-w-md mx-auto border-primary/20 bg-gradient-to-br from-card to-muted">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Fale conosco agora</h3>
-              <p className="text-muted-foreground mb-6">
+            <CardContent className="p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-foreground">Fale conosco agora</h3>
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
                 Entre em contato via WhatsApp ou nos siga no Instagram
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button
                   onClick={() => window.open("https://wa.me/5575988567568", "_blank")}
                   size="lg"
-                  className="bg-primary hover:bg-primary/90"
+                  className="bg-primary hover:bg-primary/90 w-full sm:w-auto"
                 >
-                  <Phone className="mr-2 h-5 w-5" />
+                  <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   WhatsApp
                 </Button>
                 <Button
                   onClick={() => window.open("https://instagram.com/gran_alimenticio", "_blank")}
                   variant="outline"
                   size="lg"
-                  className="border-primary/60 hover:bg-primary/10"
+                  className="border-primary/60 hover:bg-primary/10 w-full sm:w-auto"
                 >
-                  <Instagram className="mr-2 h-5 w-5" />
+                  <Instagram className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   Instagram
                 </Button>
               </div>

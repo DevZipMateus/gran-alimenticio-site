@@ -21,11 +21,11 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">Sobre nós</h2>
-          <p className="text-lg text-muted-foreground">
+    <section id="sobre" className="py-12 sm:py-16 md:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground">Sobre nós</h2>
+          <p className="text-base sm:text-lg text-muted-foreground">
             A Gran Alimentício é uma empresa que atua em diversos segmentos, oferecendo materiais 
             de limpeza, produtos de cuidado pessoal, frios e alimentos em geral. Nosso compromisso 
             vai além da qualidade dos produtos: prezamos pelo bom relacionamento com o cliente, 
@@ -33,7 +33,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => (
             <Card
               key={index}

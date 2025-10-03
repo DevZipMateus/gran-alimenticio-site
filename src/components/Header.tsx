@@ -42,19 +42,19 @@ const Header = () => {
         isScrolled ? "bg-background/95 backdrop-blur-sm shadow-md" : "bg-background"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center">
-            <img src="/logo.png" alt="Gran Alimentício" className="h-12 w-auto" />
+            <img src="/logo.png" alt="Gran Alimentício" className="h-10 sm:h-12 w-auto" />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-foreground hover:text-primary transition-colors font-medium text-sm lg:text-base"
               >
                 {item.label}
               </button>
@@ -63,6 +63,7 @@ const Header = () => {
               onClick={() => window.open("https://wa.me/5575988567568", "_blank")}
               variant="default"
               size="sm"
+              className="text-xs sm:text-sm"
             >
               Fale conosco
             </Button>

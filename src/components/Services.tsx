@@ -26,16 +26,16 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-20 bg-muted">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-foreground">Nossos serviços</h2>
-          <p className="text-lg text-muted-foreground">
+    <section id="servicos" className="py-12 sm:py-16 md:py-20 bg-muted">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 text-foreground">Nossos serviços</h2>
+          <p className="text-base sm:text-lg text-muted-foreground">
             Oferecemos uma ampla variedade de produtos para atender todas as suas necessidades
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <Card
               key={index}
@@ -52,8 +52,8 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <div className="mt-8 sm:mt-12 text-center px-4">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             <strong>Atendimento diferenciado:</strong> Disponibilizamos duas formas de atendimento - 
             em nosso ponto fixo ou de forma itinerante através de um carro plotado que visita as 
             famílias em horários alternativos, garantindo praticidade e comodidade no dia a dia.
