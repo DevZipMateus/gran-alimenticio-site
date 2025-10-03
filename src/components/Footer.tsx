@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8 text-center sm:text-left">
           <div>
-            <img src="/logo.png" alt="Gran Alimentício" className="h-12 sm:h-16 mb-3 sm:mb-4 brightness-0 invert mx-auto sm:mx-0" />
+            <img src="/logo.png" alt="Gran Alimentício" className="h-12 sm:h-16 mb-3 sm:mb-4 mx-auto sm:mx-0" />
             <p className="text-sm sm:text-base text-background/80">
               Qualidade e variedade para o seu dia a dia
             </p>
