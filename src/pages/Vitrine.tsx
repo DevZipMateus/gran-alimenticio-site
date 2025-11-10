@@ -1,0 +1,44 @@
+import { useEffect, useState } from "react";
+import Header from "@/components/Header";
+import { Helmet } from "react-helmet";
+
+const Vitrine = () => {
+  const [iframeHeight, setIframeHeight] = useState("calc(100vh - 143px)");
+
+  useEffect(() => {
+    const updateHeight = () => {
+      const headerHeight = 80; // 80px
+      const badgeHeight = 63; // 63px
+      const calculatedHeight = window.innerHeight - headerHeight - badgeHeight;
+      setIframeHeight(`${calculatedHeight}px`);
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
+
+  return (
+    <>
+      <Helmet>
+        <title>Demonstração de Vitrine - Gran Alimentício</title>
+        <meta name="description" content="Explore nossos produtos na vitrine online da Gran Alimentício." />
+      </Helmet>
+      <div className="h-screen w-full overflow-hidden flex flex-col">
+        <Header />
+        <iframe
+          src="https://granalimenticio.egestor.com.br/vitrine/"
+          style={{ 
+            width: "100%", 
+            height: iframeHeight,
+            border: "none",
+            display: "block"
+          }}
+          title="Vitrine de Produtos Gran Alimentício"
+        />
+      </div>
+    </>
+  );
+};
+
+export default Vitrine;

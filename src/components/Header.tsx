@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +32,11 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: "Início", id: "hero" },
-    { label: "Sobre", id: "sobre" },
-    { label: "Serviços", id: "servicos" },
-    { label: "Contato", id: "contato" },
+    { label: "Início", id: "hero", isHome: true },
+    { label: "Sobre", id: "sobre", isHome: true },
+    { label: "Serviços", id: "servicos", isHome: true },
+    { label: "Vitrine", id: "vitrine", path: "/vitrine" },
+    { label: "Contato", id: "contato", isHome: true },
   ];
 
   return (
@@ -44,20 +47,36 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src="/logo.png" alt="Gran Alimentício" className="h-10 sm:h-12 w-auto" />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-4 lg:gap-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary transition-colors font-medium text-sm lg:text-base"
-              >
-                {item.label}
-              </button>
+              item.path ? (
+                <Link
+                  key={item.id}
+                  to={item.path}
+                  className="text-foreground hover:text-primary transition-colors font-medium text-sm lg:text-base"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    if (location.pathname !== "/") {
+                      window.location.href = `/#${item.id}`;
+                    } else {
+                      scrollToSection(item.id);
+                    }
+                  }}
+                  className="text-foreground hover:text-primary transition-colors font-medium text-sm lg:text-base"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
             <Button
               onClick={() => window.open("https://wa.me/5575988567568", "_blank")}
@@ -83,13 +102,30 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="md:hidden pb-4 flex flex-col gap-4">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary transition-colors font-medium text-left"
-              >
-                {item.label}
-              </button>
+              item.path ? (
+                <Link
+                  key={item.id}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-foreground hover:text-primary transition-colors font-medium text-left"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    if (location.pathname !== "/") {
+                      window.location.href = `/#${item.id}`;
+                    } else {
+                      scrollToSection(item.id);
+                    }
+                  }}
+                  className="text-foreground hover:text-primary transition-colors font-medium text-left"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
             <Button
               onClick={() => window.open("https://wa.me/5575988567568", "_blank")}
