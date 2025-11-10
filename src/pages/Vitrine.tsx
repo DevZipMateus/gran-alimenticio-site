@@ -24,18 +24,20 @@ const Vitrine = () => {
         <title>Demonstração de Vitrine - Gran Alimentício</title>
         <meta name="description" content="Explore nossos produtos na vitrine online da Gran Alimentício." />
       </Helmet>
-      <div className="h-screen w-full overflow-hidden flex flex-col">
+      <div className="h-screen w-full overflow-hidden">
         <Header />
-        <iframe
-          src="https://granalimenticio.egestor.com.br/vitrine/"
-          style={{ 
-            width: "100%", 
-            height: iframeHeight,
-            border: "none",
-            display: "block"
-          }}
-          title="Vitrine de Produtos Gran Alimentício"
-        />
+        <div className="pt-20 h-full">
+          <iframe
+            src="https://granalimenticio.egestor.com.br/vitrine/"
+            style={{ 
+              width: "100%", 
+              height: iframeHeight,
+              border: "none",
+              display: "block"
+            }}
+            title="Vitrine de Produtos Gran Alimentício"
+          />
+        </div>
       </div>
     </>
   );
