@@ -15,7 +15,26 @@ const Vitrine = () => {
 
     updateHeight();
     window.addEventListener("resize", updateHeight);
-    return () => window.removeEventListener("resize", updateHeight);
+    
+    // Adicionar badge MonteSite
+    const badgeDiv = document.createElement("div");
+    badgeDiv.id = "montesite-footer-badge";
+    document.body.appendChild(badgeDiv);
+    
+    const script = document.createElement("script");
+    script.src = "https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe";
+    document.body.appendChild(script);
+    
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+      // Remover badge ao sair da página
+      if (badgeDiv.parentNode) {
+        badgeDiv.parentNode.removeChild(badgeDiv);
+      }
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
   }, []);
 
   return (
