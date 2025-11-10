@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -7,6 +8,20 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
+  useEffect(() => {
+    // Carregar script do badge MonteSite
+    const script = document.createElement("script");
+    script.src = "https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe";
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -16,6 +31,7 @@ const Index = () => {
       <Contact />
       <Footer />
       <WhatsAppButton />
+      <div id="montesite-footer-badge" />
     </div>
   );
 };
