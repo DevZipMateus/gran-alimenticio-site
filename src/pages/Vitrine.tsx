@@ -16,21 +16,14 @@ const Vitrine = () => {
     updateHeight();
     window.addEventListener("resize", updateHeight);
     
-    // Adicionar badge MonteSite
-    const badgeDiv = document.createElement("div");
-    badgeDiv.id = "montesite-footer-badge";
-    document.body.appendChild(badgeDiv);
-    
+    // Carregar script do badge MonteSite
     const script = document.createElement("script");
     script.src = "https://vaabpicspdbolvutnscp.supabase.co/functions/v1/get-footer-iframe";
+    script.async = true;
     document.body.appendChild(script);
     
     return () => {
       window.removeEventListener("resize", updateHeight);
-      // Remover badge ao sair da página
-      if (badgeDiv.parentNode) {
-        badgeDiv.parentNode.removeChild(badgeDiv);
-      }
       if (script.parentNode) {
         script.parentNode.removeChild(script);
       }
@@ -57,6 +50,7 @@ const Vitrine = () => {
             title="Vitrine de Produtos Gran Alimentício"
           />
         </div>
+        <div id="montesite-footer-badge" className="fixed bottom-0 left-0 right-0 z-50" />
       </div>
     </>
   );
